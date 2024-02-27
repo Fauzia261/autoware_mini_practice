@@ -53,10 +53,9 @@ class Localizer:
     def transform_coordinates(self, msg):
         
         self.origin_x_new, self.origin_y_new = self.transformer.transform(msg.latitude, msg.longitude)
-       
+        
         azimuth_correction = self.utm_projection.get_factors(msg.longitude, msg.latitude).meridian_convergence
         y = convert_azimuth_to_yaw(azimuth_correction)
-        
         x, y, z, w = quaternion_from_euler(0, 0, y)
         orientation = Quaternion(x, y, z, w)
         
