@@ -59,6 +59,7 @@ class Localizer:
         x, y, z, w = quaternion_from_euler(0, 0, y)
         orientation = Quaternion(x, y, z, w)
         
+        
         current_pose_msg = PoseStamped()
         current_pose_msg.header.stamp = msg.header.stamp
         current_pose_msg.header.frame_id = "map"
